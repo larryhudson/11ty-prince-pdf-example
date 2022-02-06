@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="/css/base.css" />
+    <link rel="stylesheet" href="/css/screen.css" media="screen" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <p><a href="/pdf.pdf">Download PDF</a></p>
+        <h1>{{ title }}</h1>
+      </header>
+
+      <div class="columns">
+        <main id="content" class="content">
+          {{ content | safe }}
+
+          {% set previousSection = collections.pdfContentInOrder |
+          getPreviousCollectionItem(page) %} {% set nextSection =
+          collections.pdfContentInOrder | getNextCollectionItem(page) %} {% if
+          previousSection %}
+          <p>
+            Previous:
+
+            <a href="{{ previousSection.url }}">{{
+              previousSection.data.title
+            }}</a>
+          </p>
+          {% endif %} {% if nextSection %}
+          <p>
+            Next:
+
+            <a href="{{ nextSection.url }}">{{ nextSection.data.title }}</a>
+          </p>
+          {% endif %}
+        </main>
+        <aside>
+          <h2>Contents</h2>
+          {% include 'partials/navigation.njk' %}
+        </aside>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,43 @@
+/* This stylesheet only applies to 'screens', so these rules are not applied when the user is printing or viewing the PDF */
+
+body {
+  background-color: lightgray;
+}
+
+.container {
+  max-width: 84ch;
+  margin: 0 auto;
+  background-color: white;
+  min-height: 100vh;
+  padding: 1rem;
+  box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+@media (min-width: 768px) {
+  .columns {
+    display: flex;
+    width: 100%;
+    align-items: flex-start;
+  }
+
+  .columns main {
+    flex-grow: 1;
+    flex-shrink: 0;
+    width: 60ch;
+    max-width: 100%;
+  }
+
+  .columns aside {
+    flex: 0 0 24ch;
+  }
+}
+
+aside {
+  position: sticky;
+  top: 0;
+}
+
+nav [aria-current] {
+  font-weight: bold;
+}

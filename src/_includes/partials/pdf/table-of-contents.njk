@@ -1,0 +1,10 @@
+{% set sectionsAfterToc = collections.pdfContentInOrder.slice(1) %}
+<nav id="toc">
+    <ol>
+        {% for section in sectionsAfterToc %}
+            <li>
+                <a href="#section-{{ loop.index }}">{{ section.data.title }}</a>
+            </li>
+        {% endfor %}
+    </ol>
+</nav>

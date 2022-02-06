@@ -1,0 +1,70 @@
+/* This stylesheet is only applied to the 'print' media query */
+/* Ie. when someone hits 'print' in their browser, or is viewing the PDF output */
+
+/* Utility class for adding a page break before H2 section titles */
+.page-break-before {
+  page-break-before: always;
+}
+
+/* Table of contents */
+/*  */
+#toc a {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  padding: 1rem 0;
+}
+
+/* Adds the page number of the targeted href */
+#toc a:after {
+  content: target-counter(attr(href), page);
+}
+
+#toc ol {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 0;
+}
+
+/* Set variables to use in the header and footer */
+#doctitle {
+  string-set: doctitle content();
+}
+
+h2.page-break-before {
+  string-set: sectionName content();
+}
+
+/* Add page number to bottom of pager */
+@page {
+  /* Add document title to top left */
+  @top-left {
+    content: string(doctitle);
+    color: #444;
+  }
+
+  /* Add section name to bottom left */
+  @bottom-left {
+    content: string(sectionName);
+  }
+
+  /* Add page number to bottom right */
+  @bottom-right {
+    content: "Page " counter(page) " of " counter(pages);
+  }
+}
+
+/* Don't include header and footer content on first page */
+@page:nth (1) {
+  @top-left {
+    content: "";
+  }
+
+  @bottom-left {
+    content: "";
+  }
+
+  @bottom-right {
+    content: "";
+  }
+}

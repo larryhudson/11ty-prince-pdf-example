@@ -1,0 +1,9 @@
+<nav>
+    <ul>
+        {% for section in collections.pdfContentInOrder %}
+            <li>
+                <a href="{{ section.url }}" {% if section.url === page.url %} aria-current="page" {% endif %}>{{ section.data.title }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

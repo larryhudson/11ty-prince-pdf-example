@@ -1,0 +1,5 @@
+/* This stylesheet is applied to both screens and print */
+html {
+  font-family: sans-serif;
+  line-height: 1.5rem;
+}
