@@ -5,10 +5,43 @@ tags:
   - pdfContent
 ---
 
-As you can see in the PDF, it's possible to adjust the PDF output using information from the document:
+As you can see in the PDF, Prince does a lot more than your average 'print to PDF' function.
 
-- you can add the current page number in the bottom corner
-- you can add page numbers to hyperlinks (see the table of contents)
-- you can include the document title in the header, and the current section title in the footer.
+It makes it possible to do things like:
 
-Prince makes this possible by using custom CSS rules.
+- add the current page number in the bottom corner
+- add page numbers to hyperlinks, like in the table of contents
+- add the document title in the header, and the current section title in the footer.
+
+Prince does this with custom CSS rules.
+
+This code, in `src/css/print.css`, controls the header and footer content:
+
+```
+
+/* Set variables to use in the header and footer */
+#doctitle {
+  string-set: doctitle content();
+}
+
+h2.page-break-before {
+  string-set: sectionName content();
+}
+/* Add page number to bottom of pager */
+@page {
+  /* Add document title to top left */
+  @top-left {
+    content: string(doctitle);
+  }
+
+  /* Add section name to bottom left */
+  @bottom-left {
+    content: string(sectionName);
+  }
+
+  /* Add page number to bottom right */
+  @bottom-right {
+    content: "Page " counter(page) " of " counter(pages);
+  }
+}
+```

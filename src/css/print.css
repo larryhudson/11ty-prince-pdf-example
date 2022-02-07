@@ -6,6 +6,10 @@
   page-break-before: always;
 }
 
+.hide-from-print {
+  display: none !important;
+}
+
 /* Table of contents */
 /*  */
 #toc a {
