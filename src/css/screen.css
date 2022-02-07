@@ -7,7 +7,7 @@ body {
 }
 
 .container {
-  max-width: 84ch;
+  max-width: 90ch;
   margin: 0 auto;
   background-color: white;
   min-height: 100vh;
@@ -78,6 +78,7 @@ nav a:hover {
 
 nav a:active {
   background-color: lightgray;
+  color: black;
 }
 
 aside {
@@ -89,6 +90,15 @@ aside {
   .columns {
     flex-direction: row;
     align-items: flex-start;
+  }
+
+  .columns main {
+    flex: 3;
+  }
+
+  .columns aside {
+    flex: 1;
+    min-width: 200px;
   }
 
   #desktop-nav {
@@ -106,18 +116,5 @@ aside {
   #desktop-nav {
     border-left: 2px solid lightgray;
     margin-left: 1rem;
-  }
-}
-
-@media (min-width: 768px) {
-  .columns main {
-    flex-grow: 1;
-    flex-shrink: 0;
-    width: 60ch;
-    max-width: 100%;
-  }
-
-  .columns aside {
-    flex: 0 0 24ch;
   }
 }
