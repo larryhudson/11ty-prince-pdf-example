@@ -2,6 +2,8 @@
 
 body {
   background-color: lightgray;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
@@ -9,18 +11,105 @@ body {
   margin: 0 auto;
   background-color: white;
   min-height: 100vh;
-  padding: 1rem;
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
     0 8px 10px -6px rgb(0 0 0 / 0.1);
 }
 
+pre {
+  overflow: auto;
+}
+
+nav [aria-current] {
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+.columns {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+#desktop-nav {
+  display: none;
+}
+
+aside {
+  border-bottom: 2px solid lightgray;
+  background-color: white;
+}
+
+details {
+  margin-left: 1rem;
+  padding: 1rem 1rem 1rem 0;
+}
+
+details[open] {
+  padding: 1rem 1rem 0 0;
+}
+
+main,
+header {
+  padding: 1rem;
+}
+
+aside h2 {
+  padding-left: 1rem;
+}
+
+nav a {
+  display: block;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+nav li + li {
+  border-top: 2px solid lightgray;
+}
+
+nav a:hover {
+  background-color: #eee;
+  text-decoration: underline;
+}
+
+nav a:active {
+  background-color: lightgray;
+}
+
+aside {
+  position: sticky;
+  top: 0;
+}
+
 @media (min-width: 768px) {
   .columns {
-    display: flex;
-    width: 100%;
+    flex-direction: row;
     align-items: flex-start;
   }
 
+  #desktop-nav {
+    display: block;
+  }
+
+  #mobile-nav {
+    display: none;
+  }
+
+  aside {
+    border-bottom: none;
+  }
+
+  #desktop-nav {
+    border-left: 2px solid lightgray;
+    margin-left: 1rem;
+  }
+}
+
+@media (min-width: 768px) {
   .columns main {
     flex-grow: 1;
     flex-shrink: 0;
@@ -31,13 +120,4 @@ body {
   .columns aside {
     flex: 0 0 24ch;
   }
-}
-
-aside {
-  position: sticky;
-  top: 0;
-}
-
-nav [aria-current] {
-  font-weight: bold;
 }

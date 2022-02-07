@@ -11,12 +11,13 @@
   <body>
     <div class="container">
       <header>
+        <h1>Accessible document workflow with Eleventy and Prince</h1>
         <p><a href="/pdf.pdf">Download PDF</a></p>
-        <h1>{{ title }}</h1>
       </header>
 
       <div class="columns">
         <main id="content" class="content">
+          <h1>{{ title }}</h1>
           {{ content | safe }}
 
           {% set previousSection = collections.pdfContentInOrder |
@@ -39,8 +40,16 @@
           {% endif %}
         </main>
         <aside>
-          <h2>Contents</h2>
-          {% include 'partials/navigation.njk' %}
+          <div id="mobile-nav">
+            <details>
+              <summary>Navigation</summary>
+              {% include 'partials/navigation.njk' %}
+            </details>
+          </div>
+          <div id="desktop-nav">
+            <h2>Navigation</h2>
+            {% include 'partials/navigation.njk' %}
+          </div>
         </aside>
       </div>
     </div>
