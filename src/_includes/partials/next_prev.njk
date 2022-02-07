@@ -1,0 +1,17 @@
+{% set previousSection = collections.pdfContentInOrder |
+          getPreviousCollectionItem(page) %}
+{% set nextSection =
+          collections.pdfContentInOrder | getNextCollectionItem(page) %}
+{% if
+          previousSection %}
+    <p>
+        Previous:
+        <a href="{{ previousSection.url }}">{{ previousSection.data.title }}</a>
+    </p>
+{% endif %}
+{% if nextSection %}
+    <p>
+        Next:
+        <a href="{{ nextSection.url }}">{{ nextSection.data.title }}</a>
+    </p>
+{% endif %}

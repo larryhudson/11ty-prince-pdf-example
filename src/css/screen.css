@@ -61,22 +61,22 @@ aside h2 {
   padding-left: 1rem;
 }
 
-nav a {
+.section-nav a {
   display: block;
   padding: 0.5rem 1rem;
   text-decoration: none;
 }
 
-nav li + li {
+.section-nav li + li {
   border-top: 2px solid lightgray;
 }
 
-nav a:hover {
+.section-nav a:hover {
   background-color: #eee;
   text-decoration: underline;
 }
 
-nav a:active {
+.section-nav a:active {
   background-color: lightgray;
   color: black;
 }
@@ -84,6 +84,10 @@ nav a:active {
 aside {
   position: sticky;
   top: 0;
+}
+
+.border-top {
+  border-top: 2px solid lightgray;
 }
 
 @media (min-width: 768px) {
@@ -116,5 +120,10 @@ aside {
   #desktop-nav {
     border-left: 2px solid lightgray;
     margin-left: 1rem;
+  }
+
+  .next-prev {
+    display: flex;
+    justify-content: space-between;
   }
 }
