@@ -7,57 +7,38 @@ tags:
 
 This project uses two tools:
 
-- Eleventy to turn your content into a website
-- Prince to turn one of the webpages into an accessible PDF with special CSS rules that affect the PDF output
+- [Eleventy](https://www.11ty.dev) to turn your content into a website
+- [Prince](https://princexml.com) to turn one of the webpages into an accessible PDF with special CSS rules that affect the PDF output
 
-### Eleventy
+Here is a summary of the workflow:
 
-Eleventy makes it easy to build HTML webpages by fitting content into a template.
+### 1. You edit your content
 
-Here's a simple example of how Eleventy works:
+Eleventy makes it possible to pull in content from many different sources. So you can write your content in the way you prefer.
 
-- you give Eleventy a HTML template. For example:
+You can use:
 
-```
-<html>
-  <head>
-    <title>{{title}}</title>
-  </head>
-  <body>
-  {{content|safe}}
-  </body>
-</html>
-```
+- [Markdown](https://www.markdownguide.org/) (.md) files inside the Eleventy project - this is the most direct way to get content into your Eleventy site
+- a content management system, which Eleventy pulls data from when the site is built - eg. [WordPress](https://wordpress.org/), [Drupal](https://www.drupal.org/), [KeystoneJS](https://keystonejs.com/). The content management system needs to allow you to access the data through an API (eg. a [REST API](https://developer.wordpress.org/rest-api/) or [GraphQL](https://graphql.org/))
+- Microsoft Word documents as input with the plugin [eleventy-plugin-docx](https://github.com/larryhudson/eleventy-plugin-docx)
 
-- you give Eleventy some content. For example:
+### 2. You create the HTML template, and the PDF template
 
-```
----
-title: Larry Hudson
----
-# About me
+Inside your Eleventy project, you create the HTML template that the content will be inserted into.
 
-My name is Larry. You can follow me on
-[Twitter](http://twitter.com/larryhudsondev).
-```
+You create two separate templates:
 
-- Eleventy builds the finished webpage by fitting the content into the template. This is what the output might look like:
+- a template for the website, including the navigation between pages
+- a specific template for the PDF content, which Prince will convert to a PDF.
 
-```
-<html>
-  <head>
-    <title>Larry Hudson</title>
-  </head>
-  <body>
-  <h1>About me</h1>
-  <p>
-    My name is Larry.
-    You can follow me on
-    <a href="http://twitter.com/larryhudsondev">Twitter</a>.</p>
-  </body>
-</html>
-```
+In this project, the [/pdf-content/](/pdf-content/) page is the one that gets converted to a PDF.
 
-### Prince
+You can browse the [source code of this project](https://github.com/larryhudson/11ty-prince-pdf-example/) to see an example of this.
 
-Prince is a powerful tool that converts webpages to PDFs.
+### 3. Eleventy builds the website, and Prince converts the 'PDF content' webpage to a PDF
+
+When you run the 'build' command, Eleventy will build the HTML pages ready for publishing.
+
+With the [eleventy-plugin-prince-pdf](https://github.com/larryhudson/eleventy-plugin-prince-pdf) plugin installed, Prince will automatically convert the specified webpage to a PDF after Eleventy builds the website.
+
+If you deploy to a platform like Netlify, it will automatically rebuild the website each time you make changes to the Git repository. If you're using a CMS, you can also set up a 'webhook' that tells Netlify to rebuild the site, when you make content changes.

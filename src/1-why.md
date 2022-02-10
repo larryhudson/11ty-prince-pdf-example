@@ -5,38 +5,33 @@ tags:
   - pdfContent
 ---
 
+### A webpage is the best way to share information online
+
+If you're sharing information online, the best format for the end user is a webpage:
+
+- the content reflows to match the user's device
+- the content will load faster, as the user can read the content while images and assets are downloaded (whereas a PDF needs to be fully downloaded before a user can read any of it)
+- you can break the content up into separate pages and connect them through hyperlinks, so the user does not feel overwhelmed
+- you can take advantage of the power of CSS to offer features like a dark mode
+
+This website aims to demonstrate these benefits:
+
+- the content is responsive, so the user does not need to scroll in two directions to read the content, regardless of their device
+- on mobile devices, there is a 'sticky' navigation menu that stays at the top of the screen, so people don't need to look for the navigation if they are on a long page.
+- the website uses a dark colour scheme for users who have set their system preference to prefer it.
+
+### For longform content, a print option is useful
+
+If your content is long, or designed to be read in a specific order, then a 'print PDF' option can be useful for users.
+
+Some users may prefer to print out the document and read it, especially if they are not comfortable reading on a screen.
+
+If your content has many different sections, then a well-formatted PDF that has everything the user needs in one place, can be a great experience for the user.
+
+A big part of accessibility is making sure people can access the information in their preferred way. So offering different formats is good for accessibility!
+
 ### Maintaining multiple versions of a document is hard
 
 If you are publishing a document in multiple formats (eg. a print document designed in InDesign, a Microsoft Word version and HTML content to be inserted into a CMS), it can be difficult to keep each version up to date. If a content change needs to be made, you might need to change it in three places.
 
-Ideally, you should be able to edit content in one place, and then generate multiple outputs from that single source of truth. That's what this approach gives you:
-
-- you edit your content in your preferred content management system
-- Eleventy pulls in that content and creates:
-  - a website for people reading the information on a screen (eg. computer, tablet, phone)
-  - a special 'PDF content' webpage, which forms the basis of the PDF output
-- Prince takes the 'PDF content' webpage and turns it into a PDF, for people who want to print out the document
-
-### Word, InDesign require manual accessibility work before publishing
-
-If you want to create an accessible PDF from Microsoft Word or Adobe InDesign, you need to do some manual work before publishing the document.
-
-This can involve making sure:
-
-- the content shows up in the tags of the PDF, so that assistive technology will announce the content of the document properly
-- the tags are in the correct order
-
-If you are creating complex layouts, this 'accessibility work' step can take a long time. If you are using tables in Word to align content visually, it can be tedious to remove that table structure so that the content is announced by assistive technology.
-
-If you are creating many documents, this step can slow you down and make it more difficult to make changes later. You might end up directly making text changes to an accessible PDF and hoping that your hacky little changes don't break things.
-
-By using accessible, semantic HTML as the starting point, and using Prince to convert that into a PDF, we can do away with the manual accessibility work step.
-
-HTML is the best starting point for accessible documents because there is no separation between the content and its representation for assistive technology (compare this to 'content' and 'tags' in a PDF).
-
-- semantic information about the content
-- the order of the content in the HTML is what assistive technology
-
-This means that you can create a simple webpage, and by using semantic HTML, you can create an accessible document for people who use assistive technology, without the extra accessibility work before publishing.
-
-This also means that Prince can take that webpage, and create an accessible PDF by incorporating that semantic information.
+By generating multiple formats from the same source of truth, we can be sure that any content changes automatically come through to the generated output.

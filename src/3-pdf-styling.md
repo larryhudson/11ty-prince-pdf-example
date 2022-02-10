@@ -1,11 +1,11 @@
 ---
-title: "Adding styling to the PDF"
+title: "Customising the PDF output"
 order: 30
 tags:
   - pdfContent
 ---
 
-As you can see in the PDF, Prince does a lot more than your average 'print to PDF' function.
+As you can see in the PDF, Prince does a lot more than your browser's 'print to PDF' function.
 
 It makes it possible to do things like:
 
@@ -45,3 +45,5 @@ h2.page-break-before {
   }
 }
 ```
+
+You can find out more in the [Paged Media section of Prince's User Guide](https://www.princexml.com/doc/paged/).
