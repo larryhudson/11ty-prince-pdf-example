@@ -1,3 +1,6 @@
 {
-  "title": "Accessible document workflow with Eleventy and Prince"
+  "title": "Accessible document workflow with Eleventy and Prince",
+  "author": "Larry Hudson",
+  "description": "How to generate a website and an accessible PDF from the same content",
+  "root_url": "https://11ty-prince-pdf-example.netlify.app"
 }

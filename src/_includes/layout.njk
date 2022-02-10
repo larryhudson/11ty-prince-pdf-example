@@ -3,15 +3,26 @@
   <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/> {% set metaTitle %}
+    {% if page.url !== "/" %}
+      {{ title }} |{% endif %}
+    {{ site.title }}
+    {% endset %}
     <title>
-      {% if page.url !== "/" %}
-        {{ title }} |{% endif %}
-      {{ site.title }}
+      {{ metaTitle }}
     </title>
     <link rel="stylesheet" href="/css/base.css"/>
-  <link
-    rel="stylesheet" href="/css/screen.css" media="screen"/>
+    <link rel="stylesheet" href="/css/screen.css" media="screen"/>
+    <link rel="canonical" href="{{ site.root_url }}{{ page.url }}">
+    <meta property="og:site_name" content="{{ site.title }}"/>
+    <meta property="og:title" content="{{ metaTitle }}"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="{{ site.root_url }}{{ page.url }}"/>
+    <meta name="author" content="{{ site.author }}">
+    <meta name="description" content="{{ site.description }}"/>
+    <meta name="twitter:description" content="{{ site.description }}"/>
+  <meta
+    property="og:description" content="{{ site.description }}"/>
   {# INSERT META TAGS HERE #}
   </head>
   <body>
