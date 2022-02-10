@@ -1,7 +1,7 @@
 /* This stylesheet only applies to 'screens', so these rules are not applied when the user is printing or viewing the PDF */
 
 body {
-  background-color: lightgray;
+  background-color: var(--color-backdrop);
   margin: 0;
   padding: 0;
 }
@@ -9,7 +9,7 @@ body {
 .container {
   max-width: 90ch;
   margin: 0 auto;
-  background-color: white;
+  background-color: var(--color-content-bg);
   min-height: 100vh;
   box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1),
     0 8px 10px -6px rgb(0 0 0 / 0.1);
@@ -39,8 +39,8 @@ nav ul {
 }
 
 aside {
-  border-bottom: 2px solid lightgray;
-  background-color: white;
+  border-bottom: 2px solid var(--color-border);
+  background-color: var(--color-content-bg);
 }
 
 details {
@@ -68,17 +68,17 @@ aside h2 {
 }
 
 .section-nav li + li {
-  border-top: 2px solid lightgray;
+  border-top: 2px solid var(--color-border);
 }
 
 .section-nav a:hover {
-  background-color: #eee;
+  background-color: var(--color-border);
   text-decoration: underline;
 }
 
 .section-nav a:active {
-  background-color: lightgray;
-  color: black;
+  background-color: var(--color-border);
+  color: var(--color-text);
 }
 
 aside {
@@ -87,7 +87,7 @@ aside {
 }
 
 .border-top {
-  border-top: 2px solid lightgray;
+  border-top: 2px solid var(--color-border);
 }
 
 @media (min-width: 768px) {
@@ -103,7 +103,6 @@ aside {
 
   .columns aside {
     flex: 1;
-    min-width: 250px;
   }
 
   main h1 {
@@ -123,7 +122,7 @@ aside {
   }
 
   #desktop-nav {
-    border-left: 2px solid lightgray;
+    border-left: 2px solid var(--color-border);
     margin-left: 1rem;
   }
 

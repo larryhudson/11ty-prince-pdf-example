@@ -1,5 +1,42 @@
 /* This stylesheet is applied to both screens and print */
+:root {
+  --color-backdrop: lightgray;
+
+  --color-content-bg: white;
+  --color-text: black;
+
+  --color-accent: #6b00f0;
+  --color-accent-bg: #ede2fa;
+
+  --color-border: lightgray;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-backdrop: #444;
+
+    --color-content-bg: #111;
+    --color-text: #eee;
+
+    --color-accent: #c697ff;
+    --color-accent-bg: #261d33;
+
+    --color-border: #444;
+  }
+}
+
+a {
+  color: var(--color-accent);
+}
+
 html {
   font-family: Arial, Helvetica, sans-serif;
   line-height: 1.5;
+  background-color: var(--color-bg, white);
+  color: var(--color-text, black);
+}
+
+pre {
+  background-color: var(--color-accent-bg);
+  padding: 1rem;
 }

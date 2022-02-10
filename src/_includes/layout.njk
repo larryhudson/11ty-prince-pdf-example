@@ -1,27 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>
-      {% if page.url !== "/" %}{{ title }} |{% endif %} {{ site.title }}
+      {% if page.url !== "/" %}
+        {{ title }} |{% endif %}
+      {{ site.title }}
     </title>
-    <link rel="stylesheet" href="/css/base.css" />
-    <link rel="stylesheet" href="/css/screen.css" media="screen" />
+    <link rel="stylesheet" href="/css/base.css"/>
+  <link
+    rel="stylesheet" href="/css/screen.css" media="screen"/>
+  {# INSERT META TAGS HERE #}
   </head>
   <body>
     <div class="container">
       <header>
         <h1>{{ site.title }}</h1>
-        <p><a href="/pdf.pdf">Download PDF</a></p>
+        <p>
+          <a href="/pdf.pdf">Download PDF</a>
+        </p>
       </header>
-
       <div class="columns">
         <main id="content" class="content">
           <h1>{{ title }}</h1>
           {{ content | safe }}
-
           <nav class="next-prev border-top">
             {% include 'partials/next_prev.njk' %}
           </nav>
