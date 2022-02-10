@@ -71,14 +71,11 @@ aside h2 {
   border-top: 2px solid var(--color-border);
 }
 
-.section-nav a:hover {
-  background-color: var(--color-border);
-  text-decoration: underline;
-}
-
+.section-nav a:hover,
 .section-nav a:active {
   background-color: var(--color-border);
   color: var(--color-text);
+  text-decoration: underline;
 }
 
 aside {
